@@ -26,7 +26,7 @@ def generate_password(length, symbols, upper):
     combination_length = len(combination)
     new_password = ''
 
-    for i in range(length):
+    for _ in range(length):
         new_password += combination[secrets.randbelow(combination_length)]
 
     return new_password
