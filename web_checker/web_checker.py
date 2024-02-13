@@ -32,7 +32,7 @@ def check_website(website, user_agent):
     try:
         code = requests.get(website, headers={'User-Agent': user_agent}).status_code
         print(website, description(code))
-    except Exception:
+    except requests.RequestException:
         print(f'Could not get information form website: {website}')
 
 
