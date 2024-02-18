@@ -2,9 +2,8 @@ def check_password(password):
     with open('passwords.txt', 'r') as file:
         common_passwrods = file.read().splitlines()
 
-    for i, common_password in enumerate(common_passwrods, start=1):
-        if password == common_password:
-            print(f'{password}: ❌ (#{i})')
+        if password in common_passwrods:
+            print(f'{password}: ❌ (#{common_passwrods.index(password)+1})')
             return
         
     print(f'{password}: ✅ (Unique)')
