@@ -11,7 +11,7 @@ def shorten_link(full_link):
 
     if url_data := data.get('url'):
         if url_data['status'] == 7:
-            short_link = url_data['short_link']
+            short_link = url_data['shortLink']
             print("Link: ", short_link)
         else:
             print("Error status: ", url_data['status'])
