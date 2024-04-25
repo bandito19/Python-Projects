@@ -17,4 +17,17 @@ def count_words(text_list):
         all_words += [word for word in split_text if word]
         return Counter(all_words)
     
+def main():
+    extracted_text = extarct_text_from_pdf('sample.pdf')
+    counter = count_words(text_list=extracted_text)
+
+    for page in extracted_text:
+        print(page)
+
+    for word, mentions in counter.most_common(5):
+        print(f'{word:10} : {mentions} uses')
+
+
+if __name__=='__main__':
+    main()
 
