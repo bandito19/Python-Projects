@@ -7,4 +7,17 @@ def get_best_matches(user_question, questions):
     if matches:
         return matches[0]
     
-    
+
+def chat_bot(knowledge):
+    while True:
+        user_input = input("You: ")
+
+        best_match = get_best_matches(user_input, knowledge)
+
+        if answer := knowledge.get(best_match):
+            print(f'Bot: {answer}')
+        else:
+            print("Bot: I don't understand.")
+
+
+
