@@ -21,3 +21,12 @@ def chat_bot(knowledge):
 
 
 
+if __name__ == '__main__':
+    brain = {'hello': 'Hey there!',
+                   'how are you?': 'Thanks for asking. I am good',
+                   'do you know what the time is?': 'Not at all!',
+                   'what can you do?': 'I can answer questions!',
+                   'ok': 'Great.'
+                   }
+    
+    chat_bot(knowledge=brain)
