@@ -35,3 +35,18 @@ class Browser:
     def close_browser(self):
         print("Closing browser...")
         self.browser.close()
+
+
+
+def main():
+    driver = webdriver.Edge()
+    browser  = Browser(driver=driver)
+    
+    emails = browser.scrape_emails('https://www.randomlists.com/email-addresses?qty=50')
+
+    for i, email in enumerate(emails, start=1):
+        print(i, email, sep=': ')
+
+    
+if __name__ == '__main__':
+    main()
