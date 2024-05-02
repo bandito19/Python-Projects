@@ -14,7 +14,7 @@ a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9
 class Browser:
     def __init__(self, driver) :
         print("Staritng up borwser...")
-        self.edge_options = Options
+        self.edge_options = Options()
         self.edge_options.add_argument("--headless")
         self.edge_options.add_argument("--disable-extensions")
         self.edge_options.add_argument("--disable-gpu")
