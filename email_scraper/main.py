@@ -39,8 +39,8 @@ class Browser:
 
 
 def main():
-    driver = webdriver.Edge()
-    browser  = Browser(driver=driver)
+    driv = 'msedgedriver'
+    browser  = Browser(driver=driv)
     
     emails = browser.scrape_emails('https://www.randomlists.com/email-addresses?qty=50')
 
