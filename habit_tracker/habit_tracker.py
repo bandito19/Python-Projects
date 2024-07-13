@@ -15,7 +15,7 @@ def track_habit(name: str, start:datetime, cost: float, minutes_used: float):
     goal = 60
     hourly_wage: int = 20
 
-    time_elapsed = (datetime.now() - start.total_seconds())
+    time_elapsed = (datetime.now() - start).total_seconds()
     hours = round(time_elapsed / 60 / 60, 1)
     days = round (hours / 24, 2)
 
