@@ -1,31 +1,18 @@
+import pandas as pd
+from tabulate import tabulate
 from datetime import datetime
-from dataclasses import dataclass
+from habit_tracker import track_habit, Habit 
 
 
-@dataclass
-class Habit:
-    name: str
-    time_since: str
-    remaining_days: str
-    minutes_saved: float
-    money_saved: str
+def main():
+    habits = [track_habit('Coffee', datetime(2024,7,12), cost=10, minutes_used=10),
+              track_habit('Being lazy', datetime(2024, 6, 24, 10), cost=1, minutes_used=60)]
+    
+
+    df = pd.DataFrame(habits)
+
+    print(tabulate(df, headers='keys', tablefmt='psql'))
 
 
-def track_habit(name: str, start:datetime, cost: float, minutes_used: float):
-    goal = 60
-    hourly_wage: int = 20
-
-    time_elapsed = (datetime.now() - start.total_seconds())
-    hours = round(time_elapsed / 60 / 60, 1)
-    days = round (hours / 24, 2)
-
-    money_saved = cost * days
-    minutes_used = round(days * minutes_used)
-    total_money = f'{round(money_saved + (minutes_used / 60 * hourly_wage), 2)}'
-
-    days_togo = round(goal - days)
-
-    remaining_days = 'Cleared' if days_togo <=0 else f'{days_togo}'
-    time_since = f'{days} days' if hours > 72 else f'{hours} hours'
-
-    return Habit(name=name, time_since=time_since, remaining_days=remaining_days, minutes_saved=minutes_used, money_saved=total_money)
+if __name__ == '__main__':
+    main()
